@@ -15,4 +15,19 @@
 > pytest
 
 #### Cтэк
-> tabulate, black, pytest
+> tabulate, black, pytest, pipenv
+
+
+#### Установка зависимостей
+Два варианта:
+1) Через pipenv
+```bazaar
+pip install pipenv
+pipenv shell
+pipenv install
+```
+
+2) Через pip
+```bazaar
+pip install -r requriements.txt
+```
