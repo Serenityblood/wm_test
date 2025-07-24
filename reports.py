@@ -49,4 +49,4 @@ def get_report_class(report_type: str) -> Type[BaseReport]:
     try:
         return reports[report_type]
     except KeyError:
-        raise UnknownReportTypeError(report_type)
+        raise UnknownReportTypeError(report_type, list(reports.keys()))

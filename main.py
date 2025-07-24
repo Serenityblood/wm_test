@@ -19,7 +19,7 @@ def main():
         print(f"File error: {e}")
         sys.exit(1)
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        print(f"Error: {e}")
         sys.exit(1)
 
     try:
@@ -28,7 +28,7 @@ def main():
         table = report.generate(logs)
         print(table)
     except UnknownReportTypeError as e:
-        print(f"Unknown report type: {e}")
+        print(f"{e}")
         sys.exit(1)
 
 

@@ -1,12 +1,22 @@
 import os
 import json
 from typing import List, Dict, Any, Optional
+from datetime import datetime
 
 
 class LogReader:
     def __init__(self, files: List[str], date: Optional[str] = None):
         self.files = files
-        self.date = date
+        self.date = self.validate_date(date) if date else None
+
+    @classmethod
+    def validate_date(cls, date_str: str):
+        try:
+            # Предполагается формат ГГГГ-ММ-ДД
+            datetime.strptime(date_str, "%Y-%m-%d")
+            return date_str
+        except ValueError:
+            raise ValueError(f"Invalid date format: {date_str}. Expected YYYY-MM-DD.")
 
     def read_logs(self) -> List[Dict[str, Any]]:
         logs = []

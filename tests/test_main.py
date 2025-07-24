@@ -78,3 +78,11 @@ def test_logreader_file_not_found():
 
     with pytest.raises(FileNotFoundError):
         LogReader(["/definitely/not_exist.log"]).read_logs()
+
+
+def test_logreader_date_validation():
+    # Корректный формат
+    LogReader(["somefile"], date="2025-06-22")
+    # Некорректный формат
+    with pytest.raises(ValueError):
+        LogReader(["somefile"], date="22-06-2025")
